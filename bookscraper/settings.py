@@ -18,6 +18,7 @@ FEEDS = {
 
 #scrapeops middleware to prevent being blocked
 SCRAPEOPS_API_KEY = '9888f12f-0eb8-48d0-904f-c613013262df'
+SCRAPEOPS_ENDPOINT = 'http://headers.scrapeops.io/v1/user-agents?'
 SCRAPEOPS_FAKE_USER_AGENT_ENDPOINT = True
 SCRAPEOPS_NUM_RESULTS = 50
 
@@ -58,9 +59,11 @@ ROBOTSTXT_OBEY = True
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    "bookscraper.middlewares.BookscraperDownloaderMiddleware": 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+   #"bookscraper.middlewares.BookscraperDownloaderMiddleware": 543,
+   "bookscraper.middlewares.ScrapeOopsFakeUserAgentMiddleware": 400
+   
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
